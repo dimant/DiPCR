@@ -9,10 +9,8 @@ function getPointerEvent(e) {
 
 module.exports = React.createClass({
   getInitialState: function() {
-    var initialTemp = this.props.initialTemp ?
-           this.props.initialTemp : 50
-    var initialTime = this.props.initialTime ?
-           this.props.initialTemp : 50
+    var initialTemp = this.props.initialTemp ? this.props.initialTemp : 50;
+    var initialTime = this.props.initialTime ? this.props.initialTime : 50;
     
     return { 
       time: initialTime,
