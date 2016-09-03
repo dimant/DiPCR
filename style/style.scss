@@ -1,3 +1,85 @@
-h1 {
-    color:red;
+
+$font-stack: 'Space Mono', monospace;
+
+$color-well-shadow: #E8E8E8;
+$color-primary-0: #3C2860;	// Main Primary color */
+$color-primary-1: #16141B;
+$color-primary-2: #2C233D;
+$color-primary-3: #43237D;
+$color-primary-4: #440FA6;
+
+$color-secondary-1-0: #1F5850;	// Main Secondary color (1) */
+$color-secondary-1-1: #111918;
+$color-secondary-1-2: #1E3835;
+$color-secondary-1-3: #177367;
+$color-secondary-1-4: #009883;
+
+$color-secondary-2-0: #842F3E;	// Main Secondary color (2) */
+$color-secondary-2-1: #251A1C;
+$color-secondary-2-2: #542C33;
+$color-secondary-2-3: #AD223B;
+$color-secondary-2-4: #E40028;
+
+$color-complement-0: #8C8132;	// Main Complement color */
+$color-complement-1: #28261C;
+$color-complement-2: #59542F;
+$color-complement-3: #B8A624;
+$color-complement-4: #F3D500;
+
+
+$tempbar-height: 500px;
+$tempbar-width: 100px;
+
+body {
+  font: 10pt $font-stack;
+}
+
+.cycle-component {
+  padding: 15px 5px 15px 5px;
+  box-shadow:inset 1px 1px 10px 1px $color-well-shadow;
+  border-radius: 5px;
+}
+
+.tempbar-component {
+  width: $tempbar-width + $tempbar-width * 0.6;
+}
+
+.tempbar-input-container {
+  width: $tempbar-width * 1.5;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.tempbar-background {
+  margin: 0 auto;
+  position:relative;
+  height: $tempbar-height;
+  width: $tempbar-width;
+  background-color: $color-secondary-1-3;
+}
+
+.tempbar-temperature {
+  position: absolute;
+  bottom: 0;
+  background-color: $color-secondary-2-3;
+  width:100%;
+  height:50%;
+}
+
+.tempbar-drag {
+  background-color: $color-secondary-1-2;
+  box-shadow: 0 0 1px 1px $color-secondary-1-4;
+  height:15px;
+  width: 100%;
+  cursor: row-resize;
+}
+
+.tempbar-input {
+  width: $tempbar-width * 0.36;
+  margin: 0 2px 0 2px;
+  text-align: center;
+}
+
+.input-invalid {
+  outline: 2px solid #FF0000;
 }

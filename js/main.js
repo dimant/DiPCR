@@ -1,10 +1,17 @@
-require("../style/style.scss")
+require("../style/style.scss");
 
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var TemperatureControl = require("./temperature-control");
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <div className="cycle-component">
+    <TemperatureControl
+      id={1}
+      initialTemp={25}
+      initialTime={30}
+      onCycleChange={function(c) {console.log(c);}}/>
+  </div>,
   document.getElementById('App')
 );
-
