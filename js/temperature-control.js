@@ -10,7 +10,7 @@ function getPointerEvent(e) {
 module.exports = React.createClass({
   getInitialState: function() {
     var initialTemp = this.props.initialTemp ? this.props.initialTemp : 50;
-    var initialTime = this.props.initialTime ? this.props.initialTime : 50;
+    var initialTime = this.props.initialTime ? this.props.initialTime : 30;
     
     return { 
       time: initialTime,
@@ -47,12 +47,14 @@ module.exports = React.createClass({
         temperature: percentage,
         temperatureInput: percentage
       });
+      this.props.onTempChange(this.props.id, percentage);
     }
   },
   handleTempInputChange: function(e) {
-    if(this.state.isInputValid) {
+    if(this.state.isTempValid) {
       var input = parseInt(e.target.value);
       this.setState({temperature: input});
+      this.props.onTempChange(this.props.id, input);
     }
   },
   validateTempInput: function(e) {
@@ -63,14 +65,25 @@ module.exports = React.createClass({
     this.setState({temperatureInput: e.target.value});
   },
   handleTimeInputChange: function(e) {
-    
+    if(this.state.isTimeValid) {
+      var input = parseInt(e.target.value);
+      this.setState({time: input});
+      this.props.onTimeChange(this.props.id, input);
+    }
   },
   validateTimeInput: function(e) {
-    
+    var i = parseInt(e.target.value);
+    var isInRange = i > 0;
+
+    this.setState({isTimeValid: isInRange});
+    this.setState({timeInput: e.target.value});
   },
   render: function() {
     return (
       <div className="tempbar-component">
+        <div className="tempbar-header">
+          Cycle #{this.props.id}
+        </div>
         <div className="tempbar-background"
           onMouseDown={this.handlePointerDown}
           onTouchStart={this.handlePointerDown}>
@@ -87,13 +100,18 @@ module.exports = React.createClass({
               "tempbar-input" : "tempbar-input input-invalid"}
             value={this.state.temperatureInput}
             onBlur={this.handleTempInputChange}
-            onChange={this.validateTempInput}/>C
+            onChange={this.validateTempInput}/>
+            C
         </div>
         <div className="tempbar-input-container">
           Time
           <input 
             type="number" 
-            className="tempbar-input"/>
+            className={this.state.isTimeValid ? 
+              "tempbar-input" : "tempbar-input input-invalid"}
+            value={this.state.timeInput}
+            onBlur={this.handleTimeInputChange}
+            onChange={this.validateTimeInput}/>
           Sec
         </div>
       </div>

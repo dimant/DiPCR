@@ -31,16 +31,13 @@ $tempbar-height: 500px;
 $tempbar-width: 100px;
 
 body {
-  font: 10pt $font-stack;
-}
-
-.cycle-component {
-  padding: 15px 5px 15px 5px;
-  box-shadow:inset 1px 1px 10px 1px $color-well-shadow;
-  border-radius: 5px;
+  font: 11pt $font-stack;
 }
 
 .tempbar-component {
+  padding: 15px 5px 15px 5px;
+  box-shadow:inset 1px 1px 10px 1px $color-well-shadow;
+  border-radius: 5px;
   width: $tempbar-width + $tempbar-width * 0.6;
 }
 
@@ -48,6 +45,13 @@ body {
   width: $tempbar-width * 1.5;
   margin: 0 auto;
   margin-top: 20px;
+}
+
+.tempbar-header {
+  text-align:center;
+  margin: 5px 0px 10px 0px;
+  font: 12pt $font-stack;
+  font-weight: bold;
 }
 
 .tempbar-background {
